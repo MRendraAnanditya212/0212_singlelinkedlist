@@ -19,7 +19,14 @@ class linkedList
       START = NULL;
     }
 
-    
+    void addNode()
+    {
+      int nim;
+      cout << "\nMasukkan Nomor Mahasiswa : ";
+      cin >> nim;
+
+      Node *NodeBaru = new Node;
+      NodeBaru->noMhs = nim;
 
       if (START == NULL || nim <= START-> noMhs)
       {
@@ -50,23 +57,7 @@ class linkedList
       
     }
 
-    bool listEmpty()
-    {
-      return (START == NULL);
-    }
-    bool Search(int nim, Node **previos, Node **current)
-    {
-      *previos = START;
-      *current = START;
-
-      while ((*current != NULL) && (nim != (*current)->noMhs))
-      {
-        *previos = *current;
-        *current = (*current)->next;
-      }
-
-      return(*current != NULL);
-    }
+    
 
     bool delNode(int nim)
     {
