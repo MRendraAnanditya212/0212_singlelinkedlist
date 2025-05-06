@@ -24,19 +24,7 @@ class linkedList
       cout << "\nMasukkan Nomor Mahasiswa : ";
       cin >> nim;
 
-      node *nodeBaru = new node;
-      nodeBaru->noMhs = nim;
-
-      if (START == NULL || nim <= START-> noMhs)
-      {
-        if ((START != NULL) && (nim == START->noMhs))
-        {
-          cout << "\nDuplikasi noMhs tidak dijalankan\n";
-          return;
-        }
-        nodeBaru->next = START;
-        START = nodeBaru;
-        return;
+      
     
       }
       node *previous = START;
@@ -167,7 +155,14 @@ int main()
         if (mhs.Search(nim, &previous ,&current) == false)
           cout << endl << "Data tidak ditemukan" << endl;
         else
-      
+        {
+            cout << endl << "Data ditemukan" << endl;
+            cout << "\nNo Mahasiswa : " << current->noMhs << endl;
+            cout << "\n";
+          }
+        }
+        break;
+        case '5':
     {
       exit(0);
     }
