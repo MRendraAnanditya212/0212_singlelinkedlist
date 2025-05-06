@@ -2,25 +2,23 @@
 #include <string.h>
 using namespace std;
 
-
-
-class linkedList
+class Node 
 {
-  node *START;
+    public:
+        int noMhs;
+        Node *next;
+};
 
-  public:
-    linkedList()
-    {
-      START = NULL;
-    }
+
+
     void addNode()
     {
       int nim;
       cout << "\nMasukkan Nomor Mahasiswa : ";
       cin >> nim;
 
-      node *nodeBaru = new node;
-      nodeBaru->noMhs = nim;
+      Node *NodeBaru = new Node;
+      NodeBaru->noMhs = nim;
 
       if (START == NULL || nim <= START-> noMhs)
       {
@@ -29,13 +27,13 @@ class linkedList
           cout << "\nDuplikasi noMhs tidak dijalankan\n";
           return;
         }
-        nodeBaru->next = START;
-        START = nodeBaru;
+        NodeBaru->next = START;
+        START = NodeBaru;
         return;
     
       }
-      node *previous = START;
-      node *current = START;
+      Node *previous = START;
+      Node *current = START;
 
       while ((current != NULL) && (nim >= current->noMhs))
       {
@@ -46,8 +44,8 @@ class linkedList
         previous = current;
         current = current->next;
       }
-      nodeBaru->next = current;
-      previous->next = nodeBaru;
+      NodeBaru->next = current;
+      previous->next = NodeBaru;
       
     }
 
@@ -55,7 +53,7 @@ class linkedList
     {
       return (START == NULL);
     }
-    bool Search(int nim, node **previos, node **current)
+    bool Search(int nim, Node **previos, Node **current)
     {
       *previos = START;
       *current = START;
@@ -71,7 +69,7 @@ class linkedList
 
     bool delNode(int nim)
     {
-      node *current, *previous;
+      Node *current, *previous;
       if (!Search(nim, &previous, & current))
         return false;
 
@@ -93,7 +91,7 @@ class linkedList
       else
       {
         cout << "\nData didalam list adalah : \n";
-        node *currentNode = START;
+        Node *currentNode = START;
         while (currentNode != NULL)
         {
           cout << currentNode-> noMhs << endl;
@@ -156,7 +154,7 @@ int main()
           cout << "\nList Kosong\n";
           break;
         }
-        node *previous, *current;
+        Node *previous, *current;
         cout << endl << "Masukkan no Mahasiswa yang dicari : ";
         cin >> nim;
         if (mhs.Search(nim, &previous ,&current) == false)
