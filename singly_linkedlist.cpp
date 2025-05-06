@@ -90,33 +90,32 @@ class linkedList
       return true;
     }
 
-    
+    void traverse()
+    {
+      if (listEmpty())
+      {
+        cout << "\nList Kosong\n";
+      }
+      else
+      {
+        cout << "\nData didalam list adalah : \n";
+        Node *currentNode = START;
+        while (currentNode != NULL)
+        {
+          cout << currentNode-> noMhs << endl;
+          currentNode = currentNode->next;
+        }
+        cout << endl;
+      }
+    }
+};
 
 int main()
 {
  linkedList mhs;
  int nim;
  char ch;
- while(1)
- {
-  cout << endl
-       << "Menu";
-  cout << endl
-       << "1. Menambah data kedalam list" << endl;
-  cout << "2. Menghapus data dari dalam list" << endl;
-  cout << "3. Menampilkan semua data didalam list" << endl;
-  cout << "4. Mencari data dalam list" << endl;
-  cout << "5. keluar" << endl;
-  cout << endl
-       << "Masukkan pilihan (1-5) : ";
-  cin >> ch;
-  switch (ch)
-  {
-    case '1':
-    {
-      mhs.addNode();
-    }
-    break;
+ 
     case '2':
     {
       if (mhs.listEmpty())
