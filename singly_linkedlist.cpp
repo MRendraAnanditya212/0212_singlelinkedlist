@@ -56,22 +56,25 @@ class linkedList
       
     }
 
-    
-
-    bool delNode(int nim)
+    bool listEmpty()
     {
-      node *current, *previous;
-      if (!Search(nim, &previous, & current))
-        return false;
-
-      if (current == START)
-        START = START->next;
-      else
-        previous->next = current ->next;
-
-      delete current;
-      return true;
+      return (START == NULL);
     }
+    bool Search(int nim, node **previos, node **current)
+    {
+      *previos = START;
+      *current = START;
+
+      while ((*current != NULL) && (nim != (*current)->noMhs))
+      {
+        *previos = *current;
+        *current = (*current)->next;
+      }
+
+      return(*current != NULL);
+    }
+
+    
 
     void traverse()
     {
