@@ -18,24 +18,29 @@ class linkedList
     {
       START = NULL;
     }
-    
-    
-      }
+    void addNode()
+    {
+      int nim;
+      cout << "\nMasukkan Nomor Mahasiswa : ";
+      cin >> nim;
 
-      node *previous = START;
-      node *current = START;
+      node *nodeBaru = new node;
+      nodeBaru->noMhs = nim;
 
-      while ((current != NULL) && (nim >= current->noMhs))
+      if (START == NULL || nim <= START-> noMhs)
       {
-        if (nim == current->noMhs){
-        cout << "\nDuplikasi noMhs tidak dijalankan\n";
-        return;
+        if ((START != NULL) && (nim == START->noMhs))
+        {
+          cout << "\nDuplikasi noMhs tidak dijalankan\n";
+          return;
         }
-        previous = current;
-        current = current->next;
+        nodeBaru->next = START;
+        START = nodeBaru;
+        return;
+    
       }
-      nodeBaru->next = current;
-      previous->next = nodeBaru;
+
+      
     }
 
     bool listEmpty()
