@@ -58,9 +58,6 @@ class linkedList
 
     
 
-      return(*current != NULL);
-    }
-
     bool delNode(int nim)
     {
       node *current, *previous;
