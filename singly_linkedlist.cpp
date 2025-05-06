@@ -24,23 +24,22 @@ class linkedList
       cout << "\nMasukkan Nomor Mahasiswa : ";
       cin >> nim;
 
-      
+      node *nodeBaru = new node;
+      nodeBaru->noMhs = nim;
+
+      if (START == NULL || nim <= START-> noMhs)
+      {
+        if ((START != NULL) && (nim == START->noMhs))
+        {
+          cout << "\nDuplikasi noMhs tidak dijalankan\n";
+          return;
+        }
+        nodeBaru->next = START;
+        START = nodeBaru;
+        return;
     
       }
-      node *previous = START;
-      node *current = START;
-
-      while ((current != NULL) && (nim >= current->noMhs))
-      {
-        if (nim == current->noMhs){
-        cout << "\nDuplikasi noMhs tidak dijalankan\n";
-        return;
-        }
-        previous = current;
-        current = current->next;
-      }
-      nodeBaru->next = current;
-      previous->next = nodeBaru;
+      
       
     }
 
