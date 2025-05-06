@@ -9,16 +9,17 @@ class Node
         Node *next;
 };
 
+class linkedList
+{
+  Node *START;
 
-
-    void addNode()
+  public:
+    linkedList()
     {
-      int nim;
-      cout << "\nMasukkan Nomor Mahasiswa : ";
-      cin >> nim;
+      START = NULL;
+    }
 
-      Node *NodeBaru = new Node;
-      NodeBaru->noMhs = nim;
+    
 
       if (START == NULL || nim <= START-> noMhs)
       {
