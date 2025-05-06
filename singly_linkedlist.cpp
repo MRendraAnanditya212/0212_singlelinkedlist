@@ -39,27 +39,24 @@ class linkedList
         return;
     
       }
+      node *previous = START;
+      node *current = START;
 
+      while ((current != NULL) && (nim >= current->noMhs))
+      {
+        if (nim == current->noMhs){
+        cout << "\nDuplikasi noMhs tidak dijalankan\n";
+        return;
+        }
+        previous = current;
+        current = current->next;
+      }
+      nodeBaru->next = current;
+      previous->next = nodeBaru;
       
     }
 
-    bool listEmpty()
-    {
-      return (START == NULL);
-    }
-    bool Search(int nim, node **previos, node **current)
-    {
-      *previos = START;
-      *current = START;
-
-      while ((*current != NULL) && (nim != (*current)->noMhs))
-      {
-        *previos = *current;
-        *current = (*current)->next;
-      }
-
-      return(*current != NULL);
-    }
+    
 
     bool delNode(int nim)
     {
