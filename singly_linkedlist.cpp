@@ -2,12 +2,7 @@
 #include <string.h>
 using namespace std;
 
-class node
-{
-  public:
-    int noMhs;
-    node *next;
-};
+
 
 class linkedList
 {
@@ -56,7 +51,23 @@ class linkedList
       
     }
 
-    
+    bool listEmpty()
+    {
+      return (START == NULL);
+    }
+    bool Search(int nim, node **previos, node **current)
+    {
+      *previos = START;
+      *current = START;
+
+      while ((*current != NULL) && (nim != (*current)->noMhs))
+      {
+        *previos = *current;
+        *current = (*current)->next;
+      }
+
+      return(*current != NULL);
+    }
 
     bool delNode(int nim)
     {
