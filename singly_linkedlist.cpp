@@ -74,24 +74,22 @@ class linkedList
       return(*current != NULL);
     }
 
-    
-
-    void traverse()
+    bool delNode(int nim)
     {
-      if (listEmpty())
-      {
-        cout << "\nList Kosong\n";
-      }
+      node *current, *previous;
+      if (!Search(nim, &previous, & current))
+        return false;
+
+      if (current == START)
+        START = START->next;
       else
-      {
-        cout << "\nData didalam list adalah : \n";
-        node *currentNode = START;
-        while (currentNode != NULL)
-        {
-          cout << currentNode-> noMhs << endl;
-          currentNode = currentNode->next;
-        }
-        cout << endl;
+        previous->next = current ->next;
+
+      delete current;
+      return true;
+    }
+
+    
       }
     }
 };
