@@ -2,17 +2,14 @@
 #include <string.h>
 using namespace std;
 
-
-
-class linkedList
+class node
 {
-  node *START;
-
   public:
-    linkedList()
-    {
-      START = NULL;
-    }
+    int noMhs;
+    node *next;
+};
+
+
 
     void addNode()
     {
