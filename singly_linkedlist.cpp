@@ -57,6 +57,10 @@ class linkedList
       
     }
 
+    bool listEmpty()
+    {
+      return (START == NULL);
+    }
     
 
     bool delNode(int nim)
