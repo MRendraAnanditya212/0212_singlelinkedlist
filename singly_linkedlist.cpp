@@ -110,11 +110,7 @@ class linkedList
     }
 };
 
-int main()
-{
- linkedList mhs;
- int nim;
- char ch;
+
  while(1)
  {
   cout << endl
@@ -175,7 +171,16 @@ int main()
           }
         }
         break;
-        
+        case '5':
+    {
+      exit(0);
+    }
+    break;
+    default:
+    {
+      cout << "Pilihan Salah !." << endl;
+    }
+    break;
   }
  }
 }
